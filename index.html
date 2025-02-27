@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Piano</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      .container {
+        background-color: whitesmoke;
+        position: relative;
+        border: 1px solid black;
+        height: 104px;
+        width: 1666px;
+        margin: auto;
+        margin-top: 20%;
+      }
+
+      .white {
+        background-color: white;
+        border: 1px solid black;
+        width: 32px;
+        height: 100px;
+      }
+
+      .white:hover {
+        background-color: lightgray;
+      }
+
+      .black {
+        background-color: black;
+        width: 18px;
+        height: 60px;
+      }
+      .black:hover {
+        background-color: rgb(60, 44, 44);
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const body = document.body;
+      const container = document.createElement("div");
+      container.setAttribute("class", "container");
+
+      body.appendChild(container);
+
+      const key = document.createElement("div");
+      const keyStyle = `position:absolute;margin-left:23px;top:0px;left:0px;z-index:1`;
+      key.setAttribute("class", "black");
+      key.setAttribute("style", keyStyle);
+      container.appendChild(key);
+
+      for (let keyIndex = 0; keyIndex < 52; keyIndex++) {
+        const key = document.createElement("div");
+        const keyStyle = `position:absolute;top:0px;left:${keyIndex * 32}px;`;
+        key.setAttribute("class", "white");
+        key.setAttribute("style", keyStyle);
+
+        container.appendChild(key);
+      }
+
+      const blackIndices = [0, 1, 3, 4, 5];
+
+      for (let keyIndex = 0; keyIndex < 48; keyIndex++) {
+        console.log(keyIndex, keyIndex % 7);
+        if (blackIndices.includes(keyIndex % 7)) {
+          const key = document.createElement("div");
+          const keyStyle = `position:absolute;margin-left:23px;top:0px;left:${
+            keyIndex * 32 + 64
+          }px;z-index:1`;
+          key.setAttribute("class", "black");
+          key.setAttribute("style", keyStyle);
+
+          container.appendChild(key);
+        }
+      }
+    </script>
+  </body>
+</html>
