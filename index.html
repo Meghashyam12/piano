@@ -27,11 +27,6 @@
         height: 150px;
         cursor: grab;
       }
-      .white > div {
-        position: absolute;
-        bottom: 10px;
-        left: 5px;
-      }
 
       .white:hover {
         background-color: lightgray;
@@ -47,6 +42,13 @@
       }
       .black:hover {
         background-color: rgb(60, 44, 44);
+      }
+      .note {
+        position: absolute;
+        bottom: 10px;
+        left: 2px;
+        width: 26px;
+        text-align: center;
       }
     </style>
   </head>
@@ -88,6 +90,7 @@
         const note = document.createElement("div");
         note.style.backgroundColor = keyColors[octave];
         note.style.borderRadius = "2px";
+        note.setAttribute("class", "note");
         note.innerText = alphabets[notePosition] + octave;
         notePosition = (notePosition + 1) % alphabets.length;
 
