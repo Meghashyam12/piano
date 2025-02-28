@@ -63,6 +63,17 @@
       container.appendChild(key);
 
       const alphabets = "CDEFGAB";
+      const keyColors = [
+        "#D4D4D2",
+        "#D1B2B0",
+        "#FFBDA2",
+        "#F6EEAF",
+        "#B9FCB5",
+        "#80DFD9",
+        "#96B6F1",
+        "#E8BEE6",
+        "#E4D3E3",
+      ];
       let octave = 0;
       let notePosition = 5;
 
@@ -73,6 +84,8 @@
         key.setAttribute("style", keyStyle);
 
         const note = document.createElement("div");
+        note.style.backgroundColor = keyColors[octave];
+        note.style.borderRadius = "2px";
         note.innerText = alphabets[notePosition] + octave;
         notePosition = (notePosition + 1) % alphabets.length;
 
